@@ -10,6 +10,12 @@ export class Api {
         baseURL: Api.#baseUrl,
       })
     }
+    Api.#singletonInstance.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        console.error("Axios interceptor error", error)
+      }
+    )
   }
 
   async getObjects(): Promise<any[]> {

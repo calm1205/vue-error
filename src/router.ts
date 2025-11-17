@@ -16,8 +16,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  if (to.path === "/error") {
-    // throw new Error("Router Error")
+  if (to.path === "/not-found") {
+    throw new Error("Router Error")
   }
   return true
 })

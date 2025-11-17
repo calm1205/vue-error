@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import { add } from "../lib/add"
-import { onMounted } from "vue"
+import { unstableFunction } from "../lib/unstableFunction"
+import { onMounted, ref } from "vue"
+
+const result = ref<number>()
 
 onMounted(() => {
-  // console.log(add(1, 2))
+  try {
+    result.value = unstableFunction(1, 2)
+  } catch (error) {
+    console.error("Error in ErrorLib", error)
+    result.value = NaN
+  }
 })
 </script>
 
 <template>
-  <div>
-    <h1>ErrorLib</h1>
+  <div class="p-4 border-gray-300 rounded-md bg-green-100">
+    <h1 class="text-2xl font-bold">ErrorLib</h1>
     <p>error lib</p>
+    <p>result: {{ result }}</p>
   </div>
 </template>

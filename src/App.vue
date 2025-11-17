@@ -1,15 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Sidebar from "./components/Sidebar.vue"
+</script>
 
 <template>
-  <div>
-    <h1>Vue error</h1>
-    <nav style="display: flex; gap: 10px">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/error">Error</RouterLink>
-    </nav>
-    <RouterView />
-  </div>
+  <main class="flex h-screen w-screen">
+    <Sidebar />
+    <div class="flex-1 p-4">
+      <RouterView />
+    </div>
+  </main>
 </template>
 
 <style scoped></style>

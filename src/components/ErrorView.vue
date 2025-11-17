@@ -1,35 +1,17 @@
 <script setup lang="ts">
-import ErrorScript from "./ErrorScript.vue"
+import ErrorBoundary from "./ErrorBoundary.vue"
 import ErrorTemplate from "./ErrorTemplate.vue"
 import ErrorLib from "./ErrorLib.vue"
-
-import { onErrorCaptured, onMounted } from "vue"
-import { Api } from "../lib/api"
-
-const api = new Api()
-
-onMounted(async () => {
-  const objects = await api.getObjects()
-  console.log(objects)
-  const object = await api.getObject("1")
-  console.log(object)
-})
-
-onErrorCaptured((error: unknown) => {
-  console.group("ErrorView")
-  console.error("子コンポーネントでエラー:", error)
-  console.groupEnd()
-  return false
-})
+import ErrorApi from "./ErrorApi.vue"
 </script>
 
 <template>
-  <div>
-    <h1>Error</h1>
-    <ErrorScript />
-    <ErrorTemplate />
+  <div class="flex flex-col gap-4">
+    <h1 class="text-2xl font-bold">Error</h1>
     <ErrorLib />
+    <ErrorBoundary>
+      <ErrorTemplate />
+    </ErrorBoundary>
+    <ErrorApi />
   </div>
 </template>
-
-<style scoped></style>
