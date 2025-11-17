@@ -3,7 +3,17 @@ import ErrorScript from "./ErrorScript.vue"
 import ErrorTemplate from "./ErrorTemplate.vue"
 import ErrorLib from "./ErrorLib.vue"
 
-import { onErrorCaptured } from "vue"
+import { onErrorCaptured, onMounted } from "vue"
+import { Api } from "../lib/api"
+
+const api = new Api()
+
+onMounted(async () => {
+  const objects = await api.getObjects()
+  console.log(objects)
+  const object = await api.getObject("1")
+  console.log(object)
+})
 
 onErrorCaptured((error: unknown) => {
   console.group("ErrorView")

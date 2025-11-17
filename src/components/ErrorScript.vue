@@ -1,5 +1,5 @@
 <script setup lang="ts">
-throw new Error("Error in ErrorChild")
+// throw new Error("Error in ErrorChild")
 </script>
 
 <template>

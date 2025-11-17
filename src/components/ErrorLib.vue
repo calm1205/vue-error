@@ -3,7 +3,7 @@ import { add } from "../lib/add"
 import { onMounted } from "vue"
 
 onMounted(() => {
-  console.log(add(1, 2))
+  // console.log(add(1, 2))
 })
 </script>
 
