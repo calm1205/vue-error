@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { unstableFunction } from "../lib/unstableFunction"
-import { onMounted, ref } from "vue"
+import { unstableFunction } from "../lib/unstableFunction";
+import { onMounted, ref } from "vue";
 
-const result = ref<number>()
+const result = ref<number>();
 
 onMounted(() => {
   try {
-    result.value = unstableFunction(1, 2)
+    result.value = unstableFunction(1, 2);
   } catch (error) {
-    console.error("Error in ErrorLib", error)
-    result.value = NaN
+    console.error("Error in ErrorLib", error);
+    result.value = NaN;
+    throw error;
   }
-})
+});
 </script>
 
 <template>
