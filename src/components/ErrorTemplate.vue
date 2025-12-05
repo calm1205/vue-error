@@ -1,14 +1,7 @@
 <script setup lang="ts">
-import { onErrorCaptured, ref } from "vue"
+import { ref } from "vue";
 
-const sample = ref(null)
-
-onErrorCaptured((error: unknown) => {
-  console.group("ErrorTemplate")
-  console.error(error)
-  console.groupEnd()
-  return false
-})
+const sample = ref(null);
 </script>
 
 <template>

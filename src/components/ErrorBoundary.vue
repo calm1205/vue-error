@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { onErrorCaptured, ref } from "vue"
+import { onErrorCaptured, ref } from "vue";
 
-const error = ref<Error | null>(null)
+const error = ref<Error | null>(null);
 
-onErrorCaptured((err) => {
-  error.value = err
-  console.error(err)
-  return false
-})
+onErrorCaptured((err, instance, info) => {
+  error.value = err;
+  console.error(err, instance, info);
+  return false;
+});
 </script>
 
 <template>
